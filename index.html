@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>一定发财 🎉💸💰</title>
+<title>9哥下班一起喝大象 🍻</title>
 
 <style>
   * {
@@ -15,89 +15,110 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: #fff8dc;
+    background: #fff3c4;
   }
 
-  .money {
+  .text {
     position: fixed;
-    left: -300px;
+    left: -400px;
     top: -100px;
     white-space: nowrap;
-    font-size: 30px;
-    font-weight: bold;
-    color: #e63946;
-    text-shadow: 2px 2px 0 #ffd166;
-    animation: fly linear forwards;
+    font-size: 32px;
+    font-weight: 900;
+    color: #b45309;
+    text-shadow: 2px 2px 0 #fff, 4px 4px 8px #999;
     pointer-events: none;
+
+    animation: move linear forwards;
   }
 
-  @keyframes fly {
+  @keyframes move {
     0% {
-      transform: translate(0, 0) rotate(-10deg) scale(.7);
+      transform: translate(-10vw, -10vh)
+                 rotate(-20deg)
+                 scale(.5);
       opacity: 0;
     }
 
-    10% {
+    15% {
       opacity: 1;
     }
 
     50% {
-      transform: translate(55vw, 45vh) rotate(15deg) scale(1.2);
+      transform: translate(50vw, 50vh)
+                 rotate(15deg)
+                 scale(1.3);
     }
 
     100% {
-      transform: translate(120vw, 110vh) rotate(360deg) scale(.8);
+      transform: translate(120vw, 115vh)
+                 rotate(400deg)
+                 scale(.7);
       opacity: 0;
     }
   }
 
-  #title {
+  #center {
     position: fixed;
     z-index: 9999;
     width: 100%;
-    top: 45%;
+    top: 42%;
     text-align: center;
-    font-size: clamp(35px, 8vw, 90px);
+
+    font-size: clamp(30px, 7vw, 80px);
     font-weight: 900;
-    color: #d4af37;
-    text-shadow: 3px 3px 0 #fff, 6px 6px 15px #999;
-    animation: pulse 1s infinite alternate;
+    color: #92400e;
+
+    text-shadow:
+      3px 3px 0 white,
+      6px 6px 15px #888;
+
+    animation: bounce .8s infinite alternate;
   }
 
-  @keyframes pulse {
-    from { transform: scale(1); }
-    to { transform: scale(1.12); }
+  @keyframes bounce {
+    from {
+      transform: scale(1) rotate(-2deg);
+    }
+
+    to {
+      transform: scale(1.12) rotate(2deg);
+    }
   }
 </style>
 </head>
 
 <body>
 
-<div id="title">一定发财 🎉💸💰</div>
+<div id="center">
+  🍻 9哥下班一起喝大象 🍻
+</div>
 
 <script>
-function createMoney() {
+function createText() {
   const el = document.createElement("div");
 
-  el.className = "money";
-  el.textContent = "一定发财 🎉💸💰";
+  el.className = "text";
+  el.textContent = "9哥下班一起喝大象 🍻🍻🍻🍻";
 
   el.style.top = Math.random() * 100 + "vh";
-  el.style.fontSize = (22 + Math.random() * 35) + "px";
-  el.style.animationDuration = (4 + Math.random() * 5) + "s";
+  el.style.fontSize = (20 + Math.random() * 35) + "px";
+  el.style.animationDuration = (3 + Math.random() * 5) + "s";
 
   document.body.appendChild(el);
 
-  setTimeout(() => el.remove(), 10000);
+  setTimeout(() => {
+    el.remove();
+  }, 9000);
 }
 
-// 一开始就铺满
-for (let i = 0; i < 80; i++) {
-  setTimeout(createMoney, i * 60);
+// 开场大量出现
+for (let i = 0; i < 100; i++) {
+  setTimeout(createText, i * 50);
 }
 
-// 持续飘动
-setInterval(createMoney, 180);
+// 持续生成
+setInterval(createText, 150);
 </script>
 
 </body>
