@@ -2,81 +2,22 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>满屏 😃</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>😄</title>
 <style>
-  * { box-sizing: border-box; }
-  html, body {
+  body {
     margin: 0;
-    width: 100%;
-    height: 100%;
     overflow: hidden;
-    background: #fff;
-  }
-
-  #start {
-    position: fixed;
-    z-index: 9999;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px 35px;
-    border: 0;
-    border-radius: 50px;
-    background: #ffd43b;
-    font-size: 24px;
-    cursor: pointer;
-    box-shadow: 0 5px 20px #999;
-  }
-
-  .emoji {
-    position: fixed;
-    top: -60px;
-    font-size: 45px;
-    animation: fall linear forwards;
-    pointer-events: none;
-  }
-
-  @keyframes fall {
-    from {
-      transform: translateY(-60px) rotate(0deg);
-    }
-    to {
-      transform: translateY(110vh) rotate(720deg);
-    }
+    background: white;
+    font-size: 42px;
+    font-weight: bold;
+    word-break: break-all;
   }
 </style>
 </head>
-
 <body>
-
-<button id="start">😃 点击疯狂刷屏 😃</button>
-
 <script>
-const button = document.getElementById("start");
-
-button.onclick = () => {
-  button.remove();
-
-  // 尝试进入全屏
-  document.documentElement.requestFullscreen?.().catch(() => {});
-
-  // 持续生成 😃
-  setInterval(() => {
-    const emoji = document.createElement("div");
-    emoji.className = "emoji";
-    emoji.textContent = "😃";
-
-    emoji.style.left = Math.random() * 100 + "vw";
-    emoji.style.fontSize = (25 + Math.random() * 55) + "px";
-    emoji.style.animationDuration = (2 + Math.random() * 4) + "s";
-
-    document.body.appendChild(emoji);
-
-    setTimeout(() => emoji.remove(), 7000);
-  }, 40);
-};
+  document.body.textContent = "米四傻逼 😄 ".repeat(1000);
 </script>
-
 </body>
 </html>
